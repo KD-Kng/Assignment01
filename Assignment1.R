@@ -1,0 +1,28 @@
+library(help="datasets")
+USArrests
+library(ggplot2)
+ggplot(USArrests)
+ggplot(USArrests, aes(Murder, Rape))+geom_point()
+Detail<-lm(formula = Murder ~ Rape, data=USArrests)
+summary(Detail)
+ggplot(USArrests, aes(Murder, Rape))+geom_point()+geom_smooth(method="lm")
+ggplot(USArrests, aes(Assault))+ geom_histogram(bins = 10)
+ggplot(USArrests, aes(Rape))+ geom_histogram(bins = 10)
+Model<-lm(Rape~Murder+Assault+UrbanPop, data=USArrests)
+print(Model)
+install.packages("ggcorrplot")
+library(ggcorrplot)
+data("USArrests")
+corr <- round(cor(USArrests), 1)
+head(corr[, 1:4])
+ggcorrplot(corr)
+ggcorrplot(corr, method = "circle")
+input <- USArrests[,c('Murder','Assault')]
+print(head(input))
+boxplot(Murder ~ Rape, data = USArrests, xlab = "Murder rate in USA",ylab = "Rape rate in US")
+Hello<-glm(formula = Murder ~ Rape, data=USArrests)
+summary(Hello)
+Hi<-lm(Murder~Rape,data=USArrests)
+plot(Hi)
+
+
